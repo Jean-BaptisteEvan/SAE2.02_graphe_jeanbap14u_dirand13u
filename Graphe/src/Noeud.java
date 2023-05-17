@@ -17,5 +17,6 @@ public class Noeud {
         }else {
             bRetour = false;
         }
+        return bRetour;
     }
 }
