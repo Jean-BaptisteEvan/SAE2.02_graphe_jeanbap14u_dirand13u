@@ -19,4 +19,9 @@ public class Noeud {
         }
         return bRetour;
     }
+
+    public void ajouterArc(String destination, double cout){
+        Arc arc = new Arc(destination,cout);
+        this.adj.add(arc);
+    }
 }
