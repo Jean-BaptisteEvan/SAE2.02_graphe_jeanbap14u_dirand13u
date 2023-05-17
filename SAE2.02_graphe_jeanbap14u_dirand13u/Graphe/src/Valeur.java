@@ -88,4 +88,8 @@ public class Valeur {
 
     }
 
+    public static void main(String[] args) {
+
+    }
+
 }
