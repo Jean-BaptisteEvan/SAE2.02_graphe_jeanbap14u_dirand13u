@@ -7,7 +7,7 @@ public class Noeud {
 
     public Noeud(String name){
         this.nom = name;
-        this.adj = new List<Arc>();
+        this.adj = new ArrayList<Arc>();
     }
 
     public boolean equals(Noeud o) {
