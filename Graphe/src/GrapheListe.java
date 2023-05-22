@@ -54,17 +54,27 @@ public class GrapheListe implements Graphe{
 
             output.append( this.ensNom.get(i) + " ->" );
              //boucle de recherche du noeud actuel de ensNom dans ensNoeuds
+            String nom = this.ensNom.get(i);
+
             while(j < this.ensNoeuds.size() && !bTrouv){
 
-                if(this.ensNoeuds.){
+                //si il existe un noeud avec le même nom que dans ensNom on append tout de suite les arcs a l output
+                if(this.ensNoeuds.get(j).getNom().compareTo(nom) == 0){
+                    bTrouv = true;
+                    listArc = this.ensNoeuds.get(j).getAdj();
+
+                    for(int k = 0;k<listArc.size();k++){
+                        output.append(" "+listArc.get(k).getDest() + "("+listArc.get(k).getCout() +")");
+                    }
 
                 }else{
-
+                    j++;
                 }
-                j++;
+
             }
             j = 0;
+            output.append("/n");
         }
-        return null;
+        return output.toString();
     }
 }
