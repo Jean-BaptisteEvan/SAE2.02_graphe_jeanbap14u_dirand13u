@@ -69,14 +69,13 @@ public class GrapheListe implements Graphe{
             output.append( this.ensNom.get(i) + " ->" );
              //boucle de recherche du noeud actuel de ensNom dans ensNoeuds
             String nom = this.ensNom.get(i);
-
+            bTrouv = false;
             while(j < this.ensNoeuds.size() && !bTrouv){
-
+                String nomNoe = this.ensNoeuds.get(j).getNom();
                 //si il existe un noeud avec le même nom que dans ensNom on append tout de suite les arcs a l output
-                if(this.ensNoeuds.get(j).getNom().compareTo(nom) == 0){
+                if(nomNoe.compareTo(nom) == 0){
                     bTrouv = true;
                     listArc = this.ensNoeuds.get(j).getAdj();
-
                     for(int k = 0;k<listArc.size();k++){
                         output.append(" "+listArc.get(k).getDest() + "("+listArc.get(k).getCout() +")");
                     }
