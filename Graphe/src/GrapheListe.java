@@ -49,6 +49,7 @@ public class GrapheListe implements Graphe{
             if (depart == this.ensNoeuds.get(i).getNom()) {
 
                 this.ensNoeuds.get(i).ajouterArc(destination, cout);
+                stop = true;
             }
             i = i + 1;
 
