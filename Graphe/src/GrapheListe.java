@@ -91,4 +91,39 @@ public class GrapheListe implements Graphe{
         }
         return output.toString();
     }
+
+    public String toGraphviz(){
+        //initalisation des variables
+        boolean bTrouv = false;
+
+        int j = 0;
+
+        StringBuffer output = new StringBuffer();
+        ArrayList<Arc> listArc = new ArrayList<Arc>();
+        // boucles sur tout les noeuds
+        for (int i = 0;i<this.ensNom.size();i++){
+
+            //boucle de recherche du noeud actuel de ensNom dans ensNoeuds
+            String nom = this.ensNom.get(i);
+            bTrouv = false;//D -> C [label = 10]
+            //A -> B(12)
+            while(j < this.ensNoeuds.size() && !bTrouv){
+                String nomNoe = this.ensNoeuds.get(j).getNom();
+                //si il existe un noeud avec le même nom que dans ensNom on append tout de suite les arcs a l output
+                if(nomNoe.compareTo(nom) == 0){
+                    bTrouv = true;
+                    listArc = this.ensNoeuds.get(j).getAdj();
+                    for(int k = 0;k<listArc.size();k++){
+                        output.append(this.ensNom.get(i)+" -> "+listArc.get(k).getDest() + " [label = " +listArc.get(k).getCout() +"]"+"\n");
+                    }
+
+                }else{
+                    j++;
+                }
+
+            }
+            j = 0;
+        }
+        return output.toString();
+    }
 }

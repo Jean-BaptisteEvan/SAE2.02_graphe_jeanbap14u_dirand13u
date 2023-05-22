@@ -10,6 +10,6 @@ public class Main {
         graphe.ajouterArc("D","B",23);
         graphe.ajouterArc("D","C",10);
         graphe.ajouterArc("E","D",43);
-        System.out.println(graphe);
+        System.out.println(graphe.toGraphviz());
     }
 }
