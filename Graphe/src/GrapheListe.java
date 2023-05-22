@@ -57,7 +57,9 @@ public class GrapheListe implements Graphe{
     public String toString(){
         //initalisation des variables
         boolean bTrouv = false;
-        int j ;
+
+        int j = 0;
+
         StringBuffer output = new StringBuffer();
         ArrayList<Arc> listArc = new ArrayList<Arc>();
         // boucles sur tout les noeuds
