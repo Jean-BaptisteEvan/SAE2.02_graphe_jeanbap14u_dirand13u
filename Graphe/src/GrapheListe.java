@@ -39,14 +39,25 @@ public class GrapheListe implements Graphe{
 
     public void ajouterArc(String depart, String destination, double cout){
         if (!this.ensNom.contains(depart)){
-            
+            ensNoeuds.add(new Noeud(depart));
+            ensNom.add(depart);
         }
+        if (!this.ensNom.contains(destination)){
+            ensNoeuds.add(new Noeud(destination));
+            ensNom.add(destination);
+        }
+        int i = 0;
+        while (depart==this.ensNoeuds.get(i).getNom()) {
+            i = i + 1;
+            this.ensNoeuds.get(i).ajouterArc(destination,cout);
+        }
+
     }
 
     public String toString(){
         //initalisation des variables
         boolean bTrouv = false;
-        int j;
+        int j ;
         StringBuffer output = new StringBuffer();
         ArrayList<Arc> listArc = new ArrayList<Arc>();
         // boucles sur tout les noeuds
