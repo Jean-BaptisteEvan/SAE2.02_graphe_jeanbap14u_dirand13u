@@ -34,12 +34,13 @@ public class GrapheListe implements Graphe{
         while (n==this.ensNoeuds.get(i).getNom()) {
             i = i + 1;
         }
-        ArrayList al=this.ensNoeuds.get(i).getAdj();
-        return al;
+        return this.ensNoeuds.get(i).getAdj();
     }
 
     public void ajouterArc(String depart, String destination, double cout){
-
+        if (!this.ensNom.contains(depart)){
+            
+        }
     }
 
     public String toString(){
