@@ -32,4 +32,29 @@ public class GrapheListe implements Graphe{
     public void ajouterArc(String depart, String destination, double cout){
 
     }
+
+    public String toString(){
+        //initalisation des variables
+        boolean bTrouv = false;
+        int j;
+        StringBuffer output = new StringBuffer();
+        ArrayList<Arc> listArc = new ArrayList<Arc>();
+        // boucles sur tout les noeuds
+        for (int i = 0;i<this.ensNom.size();i++){
+
+            output.append( this.ensNom.get(i) + " ->" );
+             //boucle de recherche du noeud actuel de ensNom dans ensNoeuds
+            while(j < this.ensNoeuds.size() && !bTrouv){
+
+                if(this.ensNoeuds.){
+
+                }else{
+
+                }
+                j++;
+            }
+            j = 0;
+        }
+        return null;
+    }
 }

@@ -24,4 +24,12 @@ public class Noeud {
         Arc arc = new Arc(destination,cout);
         this.adj.add(arc);
     }
+
+    public List<Arc> getAdj() {
+        return adj;
+    }
+
+    public String getNom() {
+        return nom;
+    }
 }
