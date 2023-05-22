@@ -1,0 +1,28 @@
+@startuml
+title Graphes
+''' classes
+Interface Graphe{
+    +listeNoeuds() :List<String>
+    +suivants(String n ) : List<Arc>
+}
+class Noeud{
+    -nom : String
+    +boolean equals(Object o)
+    +void ajouterArc(String destination, double cout)
+
+}
+class Arc{
+    -dest : String
+    -cout : double
+
+}
+class GrapheListe{
+    -ensNom : List<String>
+    -ensNoeuds : List<Noeud>
+    +ajouterArc(depart : String , destination : String , cout double)
+
+}
+
+
+
+@enduml
