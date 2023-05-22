@@ -17,12 +17,8 @@ public class GrapheListe implements Graphe{
     }
     public ArrayList<String> listeNoeuds() {
         ArrayList<String> str = null;
-        for (int i = 0; i < this.ensNoeuds.size(); i++) {
-            Noeud nod = this.ensNoeuds.get(i);
-
-
+        for (Noeud nod : this.ensNoeuds) {
             str.add(nod.getNom());
-
 
 
         }
@@ -37,21 +33,26 @@ public class GrapheListe implements Graphe{
         return this.ensNoeuds.get(i).getAdj();
     }
 
-    public void ajouterArc(String depart, String destination, double cout){
-        if (!this.ensNom.contains(depart)){
+    public void ajouterArc(String depart, String destination, double cout) {
+        if (!this.ensNom.contains(depart)) {
             ensNoeuds.add(new Noeud(depart));
             ensNom.add(depart);
         }
-        if (!this.ensNom.contains(destination)){
+        if (!this.ensNom.contains(destination)) {
             ensNoeuds.add(new Noeud(destination));
             ensNom.add(destination);
         }
         int i = 0;
-        while (depart==this.ensNoeuds.get(i).getNom()) {
-            i = i + 1;
-            this.ensNoeuds.get(i).ajouterArc(destination,cout);
-        }
+        boolean stop = false;
+        while (stop == false) {
 
+            if (depart == this.ensNoeuds.get(i).getNom()) {
+
+                this.ensNoeuds.get(i).ajouterArc(destination, cout);
+            }
+            i = i + 1;
+
+        }
     }
 
     public String toString(){
@@ -86,7 +87,7 @@ public class GrapheListe implements Graphe{
 
             }
             j = 0;
-            output.append("/n");
+            output.append("\n");
         }
         return output.toString();
     }
