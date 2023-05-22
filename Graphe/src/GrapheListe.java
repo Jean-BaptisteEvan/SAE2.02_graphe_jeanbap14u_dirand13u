@@ -1,3 +1,4 @@
+import java.nio.Buffer;
 import java.util.ArrayList;
 
 public class GrapheListe implements Graphe{
@@ -15,14 +16,17 @@ public class GrapheListe implements Graphe{
         this.ensNoeuds = new ArrayList<Noeud>();
     }
     public ArrayList<String> listeNoeuds() {
-
-        for(int i=0;i < this.ensNoeuds.size();i++){
+        ArrayList<String> str = null;
+        for (int i = 0; i < this.ensNoeuds.size(); i++) {
             Noeud nod = this.ensNoeuds.get(i);
-            nod.
+
+
+            str.add(nod.getNom());
+
+
 
         }
-
-        return null;
+        return str;
     }
 
     public ArrayList<Arc> suivants(String n) {
