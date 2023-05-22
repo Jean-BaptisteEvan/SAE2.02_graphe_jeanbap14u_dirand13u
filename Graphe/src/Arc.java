@@ -10,4 +10,12 @@ public class Arc {
             throw new Error("il ne peut y avoir en aucun cas une valeur autre que strictement positive");
         }
     }
+
+    public double getCout() {
+        return cout;
+    }
+
+    public String getDest() {
+        return dest;
+    }
 }
