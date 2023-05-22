@@ -30,7 +30,12 @@ public class GrapheListe implements Graphe{
     }
 
     public ArrayList<Arc> suivants(String n) {
-        return null;
+        int i = 0;
+        while (n==this.ensNoeuds.get(i).getNom()) {
+            i = i + 1;
+        }
+        ArrayList al=this.ensNoeuds.get(i).getAdj();
+        return al;
     }
 
     public void ajouterArc(String depart, String destination, double cout){

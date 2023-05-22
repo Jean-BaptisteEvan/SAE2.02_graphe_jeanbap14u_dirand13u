@@ -3,7 +3,7 @@ import java.util.*;
 public class Noeud {
 
     private String nom;
-    private List<Arc> adj;
+    private ArrayList<Arc> adj;
 
     public Noeud(String name){
         this.nom = name;
@@ -25,7 +25,7 @@ public class Noeud {
         this.adj.add(arc);
     }
 
-    public List<Arc> getAdj() {
+    public ArrayList<Arc> getAdj() {
         return adj;
     }
 
