@@ -2,6 +2,10 @@ public class Arc {
     private String dest;
     private double cout;
 
+    /**
+     * @param destination
+     * @param dist
+     */
     public Arc(String destination, double dist){
         if(dist>0){
             this.dest = destination;
@@ -11,10 +15,18 @@ public class Arc {
         }
     }
 
+    /**
+     * getter de l attribut cout
+     * @return un double correpondant au prix de l arc
+     */
     public double getCout() {
         return cout;
     }
 
+    /**
+     * getter de l attrobut dest
+     * @return un String correspondant a la destination de l arc
+     */
     public String getDest() {
         return dest;
     }

@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+/**
+ * interface graphe
+ */
 public interface Graphe {
 
     public ArrayList<String> listeNoeuds();
