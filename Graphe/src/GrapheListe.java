@@ -183,4 +183,7 @@ public class GrapheListe implements Graphe{
     }
     }
 
+    public ArrayList<Noeud> getNoeuds() {
+        return this.ensNoeuds;
+    }
 }
