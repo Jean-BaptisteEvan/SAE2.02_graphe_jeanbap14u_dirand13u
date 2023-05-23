@@ -10,13 +10,13 @@ public class BellmanFord {
         // Step 1: Initialization
         List<Noeud> noeuds = g.getNoeuds();
         for (Noeud noeud : noeuds) {
-            if (noeud.equals(depart)) {
-                valeur.setValeur(noeud.getNom(), 0.0);
-            } else {
+
+
+
                 valeur.setValeur(noeud.getNom(), Double.POSITIVE_INFINITY);
             }
+        valeur.setValeur(depart, 0.0);
 
-        }
 
 
         int n = noeuds.size();
@@ -36,18 +36,7 @@ public class BellmanFord {
         }
 
 
-        for (Noeud noeud : noeuds) {
-            List<Arc> arcs = g.suivants(noeud.getNom());
-            for (Arc arc : arcs) {
-                String destination = arc.getDest();
-                double cout = arc.getCout();
-                double distanceNoeud = valeur.getValeur(noeud.getNom());
-                double distanceDestination = valeur.getValeur(destination);
-                if (distanceNoeud + cout < distanceDestination) {
-                    throw new RuntimeException("Negative cycle detected. The graph contains a negative cycle.");
-                }
-            }
-        }
+
 
         return valeur;
     }
