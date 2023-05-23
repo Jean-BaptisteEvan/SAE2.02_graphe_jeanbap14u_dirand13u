@@ -19,12 +19,12 @@ public class GrapheListe implements Graphe{
         this.ensNoeuds = new ArrayList<>();
     }
 
-<<<<<<< HEAD
+
     /**
      * méthode qui retourne tout les noms des noeuds connus du graphe
      * @return ArrayList<String> liste des noms de noeuds
      */
->>>>>>>
+
     public ArrayList<String> listeNoeuds() {
         ArrayList<String> str = null;
         for (Noeud nod : this.ensNoeuds) {
@@ -115,7 +115,7 @@ public class GrapheListe implements Graphe{
         return output.toString();
     }
 
-<<<<<<< HEAD
+
 
     /**
      * methode qui retourne en texte pour Graphviz le graphe sur le quel elle est appele
@@ -182,5 +182,5 @@ public class GrapheListe implements Graphe{
         System.out.println("no fichier");
     }
     }
->>>>>>> 
+
 }
