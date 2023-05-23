@@ -4,7 +4,7 @@ import java.util.List;
 
 public class BellmanFord {
 
-    public static Valeur resoudre(Graphe g, String depart) {
+    public Valeur resoudre(Graphe g, String depart) {
         Valeur valeur = new Valeur();
 
         // Step 1: Initialization

@@ -1,24 +1,17 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainBellmanFord {
     public static void main(String[] args) {
 
-        //Creation d'un graphe à partir d'un fichier
-        GrapheListe g = new GrapheListe("Graphe1.txt");
 
-        // Créer une instance de BellmanFord
-        BellmanFord bf = new BellmanFord();
+        GrapheListe graphe = new GrapheListe("Graphe_exemple1.txt");
+        BellmanFord bellford = new BellmanFord();
+        String dep = "A";
+        Valeur res = bellford.resoudre(graphe, dep);
 
-        // Résoudre le graphe en partant du noeud 1
-        Valeur resultat = bf.resoudre(g, "1");
-
-        // Afficher les valeurs pour chaque noeud
-        for (Noeud n : g.getNoeuds()) {
-            System.out.println("Noeud: " + n.getNom());
-            System.out.println("Distance: " + resultat.getValeur(n.getNom()));
-            System.out.println("Parent: " + resultat.getParent(n.getNom()));
-            System.out.println("----------------");
+        for (Noeud n : graphe.getNoeuds()) {
+            System.out.println("noeud : " + n.getNom());
+            System.out.println("distance depuis " + dep + " " + res.getValeur(n.getNom()));
+            System.out.println("parent de ce noeud : " + res.getParent(n.getNom()));
+            System.out.println("|_________________________|");
         }
 
     }
