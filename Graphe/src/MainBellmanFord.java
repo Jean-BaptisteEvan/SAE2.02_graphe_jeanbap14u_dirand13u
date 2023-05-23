@@ -5,7 +5,7 @@ public class MainBellmanFord {
     public static void main(String[] args) {
 
         //Creation d'un graphe à partir d'un fichier
-        GrapheListe g = new GrapheListe("Graphes/Graphe2.txt");
+        GrapheListe g = new GrapheListe("Graphe1.txt");
 
         // Créer une instance de BellmanFord
         BellmanFord bf = new BellmanFord();
