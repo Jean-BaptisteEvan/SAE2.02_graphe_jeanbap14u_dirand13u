@@ -17,8 +17,8 @@ public class MainBellmanFord {
         }
 
         ArrayList<String> chemin = res.calculerChemin("C");
-        for(int i = 0;i<chemin.size();i++){
-            System.out.print(chemin.get(i) + " ");
+        for (String s : chemin) {
+            System.out.print(s + " ");
         }
 
     }
