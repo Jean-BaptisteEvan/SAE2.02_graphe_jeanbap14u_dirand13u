@@ -7,8 +7,9 @@ public class MainDijkstra {
         String dest = "B";
 
         GrapheListe graphe = new GrapheListe(fich);
-        Valeur res = Dijkstra.resoudre(graphe,dep);
-
+        Dijkstra dij = new Dijkstra();
+        Valeur res = dij.resoudre(graphe,dep);
+        System.out.println("heya");
         for (Noeud n : graphe.getNoeuds()) {
             System.out.println("noeud : " + n.getNom());
             System.out.println("distance depuis " + dep + " " + res.getValeur(n.getNom()));

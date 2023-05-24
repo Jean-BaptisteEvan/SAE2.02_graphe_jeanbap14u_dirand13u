@@ -1,79 +1,50 @@
 import java.util.*;
 
 public class Dijkstra {
-    /*
-        Entrees :
-        G un graphe oriente avec une ponderation (poids) positive des arcs
-        A un sommet (depart) de G
 
-        Debut
-        Q <- {} // utilisation d’une liste de noeuds `a traiter
-        Pour chaque sommet v de G faire
-            v.distance <- Infini
-            v.parent <- Indefini
-            Q <- Q U {v} // ajouter le sommet v a la liste Q
-        Fin Pour
-        A.distance <- 0
-        Tant que Q est un ensemble non vide faire
-            u <- un sommet de Q telle que u.distance est minimale
-            Q <- Q \ {u} // enlever le sommet u de la liste Q
-            Pour chaque sommet v de Q tel que l’arc (u,v) existe faire
-                D <- u.distance + poids(u,v)
-                Si D < v.distance
-                    Alors v.distance <- D
-                           v.parent <- u
-                Fin Si
-            Fin Pour
-        Fin Tant que
-        Fin
-    */
-    public static Valeur resoudre(Graphe g, String depart) {
-        Valeur valeur = new Valeur();
+    public Valeur resoudre(Graphe g, String depart){
 
-        List<String> noeuds = g.listeNoeuds();
-
-        // Initialisation
-        for (String v : noeuds) {
-            valeur.setValeur(v, Double.POSITIVE_INFINITY);
-            valeur.setParent(v, null);
+        Valeur v =new Valeur();
+        ArrayList<String> Q = new ArrayList<>();
+        String nom;
+        for(int i = 0;i < g.listeNoeuds().size();i++){
+            nom = g.listeNoeuds().get(i);
+            v.setValeur(nom,Double.POSITIVE_INFINITY);
+            v.setParent(nom,null);
+            Q.add(nom);
         }
-        valeur.setValeur(depart, 0);
+        v.setValeur(depart,0);
+        double poids = 0;
+        while(!Q.isEmpty()){
+            String u = minU(v,Q);
+            Q.remove(u);
+            for(int j = 0;j < Q.size();j++){
+                double minDistance = v.getValeur(u);
 
 
-        Set<String> nonTraites = new HashSet<>(noeuds);
-
-        while (!nonTraites.isEmpty()) {
-            String u = trouverNoeudMinimum(valeur, nonTraites);
-            nonTraites.remove(u);
-
-            ArrayList<Arc> voisins = g.suivants(u);
-            for (Arc arc : voisins) {
-                String v = arc.getDest();
-                double poidsUV = arc.getCout();
-                double distanceParU = valeur.getValeur(u) + poidsUV;
-
-                if (distanceParU < valeur.getValeur(v)) {
-                    valeur.setValeur(v, distanceParU);
-                    valeur.setParent(v, u);
+                double D = v.getValeur(u) + poids;
+                //Si D < v.distance
+                if( D < v.getValeur(Q.get(j))){
+                    v.setValeur(Q.get(j),D);
+                    v.setParent(Q.get(j),u);
                 }
+                //Alors v.distance <- D
+                //v.parent <- u
             }
         }
-
-        return valeur;
+        return v;
     }
 
-    private static String trouverNoeudMinimum(Valeur valeur, Set<String> noeuds) {
-        String minNoeud = null;
-        double minDistance = Double.POSITIVE_INFINITY;
-
-        for (String noeud : noeuds) {
-            double distance = valeur.getValeur(noeud);
-            if (distance < minDistance) {
-                minDistance = distance;
-                minNoeud = noeud;
+    public String minU(Valeur v,ArrayList<String> Q){
+        double min = v.getValeur(Q.get(0));
+        String nMin = Q.get(0);
+        for(int i = 1; i<Q.size();i++){
+            if(v.getValeur(Q.get(i))<min){
+                min = v.getValeur(Q.get(i));
+                nMin = Q.get(i);
             }
         }
-
-        return minNoeud;
+        return nMin;
     }
+
 }
