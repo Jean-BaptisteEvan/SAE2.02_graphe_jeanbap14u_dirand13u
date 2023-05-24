@@ -26,11 +26,9 @@ public class GrapheListe implements Graphe{
      */
 
     public ArrayList<String> listeNoeuds() {
-        ArrayList<String> str = null;
+        ArrayList<String> str = new ArrayList<>();
         for (Noeud nod : this.ensNoeuds) {
             str.add(nod.getNom());
-
-
         }
         return str;
     }
@@ -41,7 +39,8 @@ public class GrapheListe implements Graphe{
      */
     public ArrayList<Arc> suivants(String n) {
         int i = 0;
-        while (n.compareTo(this.ensNoeuds.get(i).getNom())==0) {
+        String nom = this.ensNoeuds.get(i).getNom();
+        while (nom.compareTo(n)==0) {
             i = i + 1;
         }
         return this.ensNoeuds.get(i).getAdj();
