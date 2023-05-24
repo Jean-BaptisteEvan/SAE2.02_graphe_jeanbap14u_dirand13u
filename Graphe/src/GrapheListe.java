@@ -40,8 +40,9 @@ public class GrapheListe implements Graphe{
     public ArrayList<Arc> suivants(String n) {
         int i = 0;
         String nom = this.ensNoeuds.get(i).getNom();
-        while (nom.compareTo(n)==0) {
+        while (!(nom.compareTo(n)==0)) {
             i = i + 1;
+            nom = this.ensNoeuds.get(i).getNom();
         }
         return this.ensNoeuds.get(i).getAdj();
     }

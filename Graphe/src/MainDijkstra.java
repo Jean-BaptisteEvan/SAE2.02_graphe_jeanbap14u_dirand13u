@@ -8,6 +8,7 @@ public class MainDijkstra {
 
         GrapheListe graphe = new GrapheListe(fich);
         Dijkstra dij = new Dijkstra();
+        System.out.println("im in");
         Valeur res = dij.resoudre(graphe,dep);
         System.out.println("heya");
         for (Noeud n : graphe.getNoeuds()) {

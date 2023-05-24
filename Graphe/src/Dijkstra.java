@@ -18,18 +18,19 @@ public class Dijkstra {
         while(!Q.isEmpty()){
             String u = minU(v,Q);
             Q.remove(u);
-            for(int j = 0;j < Q.size();j++){
+            List<Arc> arcs = g.suivants(u);
+            for (int j = 0; j < arcs.size(); j++) {
+                Arc arc = arcs.get(j);
                 double minDistance = v.getValeur(u);
 
-
-                double D = v.getValeur(u) + poids;
-                //Si D < v.distance
-                if( D < v.getValeur(Q.get(j))){
-                    v.setValeur(Q.get(j),D);
-                    v.setParent(Q.get(j),u);
+                double D = v.getValeur(u) + arc.getCout();
+                System.out.println(poids + " " + D + " " + v.getValeur(arc.getDest()));
+                if( D < v.getValeur(arc.getDest())){ //Si D < v.distance
+                    v.setValeur(arc.getDest(),D); //Alors v.distance <- D
+                    v.setParent(arc.getDest(),u); //v.parent <- u
                 }
-                //Alors v.distance <- D
-                //v.parent <- u
+
+
             }
         }
         return v;
