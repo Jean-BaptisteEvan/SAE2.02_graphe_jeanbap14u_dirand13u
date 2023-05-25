@@ -19,6 +19,51 @@ public class GrapheListe implements Graphe{
         this.ensNoeuds = new ArrayList<>();
     }
 
+    public void randomGraph(int nbr){
+        for (int i = 0;i<=nbr;i++){
+            String nomNoeud = "" + i;
+            this.ensNom.add(nomNoeud);
+            this.ensNoeuds.add(new Noeud(nomNoeud));
+        }
+        for (int j = 0;j<=nbr;j++){
+            int randNbrArc = (int) Math.floor(Math.random()*(nbr/2));
+            String nomNoeud = "" + j;
+            for(int k = 0 ; k <= randNbrArc; k++){
+                String randDest = "" + (int) Math.floor(Math.random()*nbr);
+                double coutDest = Math.floor(Math.random()*100);
+                if(coutDest < 1){coutDest++;}
+                this.ajouterArc(nomNoeud,randDest,coutDest);
+            }
+        }
+    }
+
+    public static void matriceToListeArc(String file){
+        try{
+            File output = new File( "listArc" + file);
+            Writer ecrit = new FileWriter(output);
+
+            BufferedReader bReader = new BufferedReader(new FileReader(file));
+            String ligne = bReader.readLine();
+            String[] splitLigne = ligne.split("\t");
+            String[] temoin = splitLigne;
+            ligne = bReader.readLine();
+            while (ligne != null) {
+                splitLigne = ligne.split("\t");
+                for(int i = 1; i< splitLigne.length;i++){
+                    if(!splitLigne[i].equals("0.")){
+                        ecrit.write(splitLigne[0]+ "\t" +temoin[i]+"\t"+splitLigne[i]+"\n");
+                    }
+                }
+                ligne = bReader.readLine();
+
+            }
+            ecrit.close();
+        }catch(FileNotFoundException e){
+            System.out.println("IOEXCEPTION");
+        }catch(IOException e){
+            System.out.println("no fichier");
+        }
+    }
 
     /**
      * méthode qui retourne tout les noms des noeuds connus du graphe
@@ -159,7 +204,7 @@ public class GrapheListe implements Graphe{
     }
 
     /**
-     * methode qui génere un objet graphe a partir d un fichier
+     * constructeur qui génere un objet graphe a partir d un fichier
      * @param destFich emplacement d un fichier contenant une liste d'arcs
      */
     public GrapheListe(String destFich) {
