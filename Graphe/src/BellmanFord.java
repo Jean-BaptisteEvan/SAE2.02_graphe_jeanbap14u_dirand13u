@@ -30,6 +30,7 @@ public class BellmanFord {
                     if (distanceNoeud + cout < distanceDestination) {
                         valeur.setValeur(destination, distanceNoeud + cout);
                         valeur.setParent(destination, noeud.getNom());
+                        //System.out.println(valeur);
                     }
                 }
             }

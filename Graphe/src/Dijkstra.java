@@ -28,6 +28,7 @@ public class Dijkstra {
                 if( D < v.getValeur(arc.getDest())){ //Si D < v.distance
                     v.setValeur(arc.getDest(),D); //Alors v.distance <- D
                     v.setParent(arc.getDest(),u); //v.parent <- u
+                    //System.out.println(v);
                 }
 
 

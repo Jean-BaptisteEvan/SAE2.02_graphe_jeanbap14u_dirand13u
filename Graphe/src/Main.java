@@ -3,10 +3,10 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
-        GrapheListe graphe = new GrapheListe("Graphe_exemple1.txt");
+        GrapheListe graphe = new GrapheListe();
+        /*System.out.println(graphe.toGraphviz());*/
+        graphe.randomGraph(7);
         System.out.println(graphe.toGraphviz());
-        //graphe.randomGraph(50);
-        //System.out.println(graphe.toGraphviz());
 
 
     }

@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 
 public class MainDijkstra {
+
     public static void main(String[] args) {
-        String fich = "Graphe_exemple1.txt";
-        String dep = "A";
-        String dest = "C";
+        double db = System.currentTimeMillis();
+        String fich = "Graphe905.txt";
+        String dep = "1";
+        String dest = "899";
 
         GrapheListe graphe = new GrapheListe(fich);
         Dijkstra dij = new Dijkstra();
@@ -20,7 +22,8 @@ public class MainDijkstra {
         }
         System.out.println("fin");
         System.out.println("ce chemin a pour valeur : " + res.getValeur(dest));
-
+        double fn = System.currentTimeMillis();
+        System.out.println(fn-db);
 
 
     }
